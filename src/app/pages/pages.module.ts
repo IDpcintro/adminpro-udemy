@@ -15,6 +15,7 @@ import { PAGES_ROUTES } from './pages.routes';
 //temporal
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 
 
@@ -25,7 +26,8 @@ import { GraficoDonaComponent } from '../components/grafico-dona/grafico-dona.co
         PagesComponent,
         IncrementadorComponent,
         Graficas1Component,
-        GraficoDonaComponent
+        GraficoDonaComponent,
+        AccountSettingsComponent
     ],
     exports: [
         DashboardComponent,
