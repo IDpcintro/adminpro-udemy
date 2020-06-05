@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { retry, map, filter } from 'rxjs/Operators';
+import { Observable, Subscription, Subscriber } from 'rxjs';
+import { retry, map, filter } from 'rxjs/operators';
 
 
 @Component({
@@ -21,7 +21,6 @@ export class RxjsComponent implements OnInit, OnDestroy {
 
 
     this.subscription = this.regresaObservable()
-    
     .subscribe( 
       numero => console.log( 'subs', numero),
       error => console.error( 'Error en obs', error),
@@ -41,11 +40,11 @@ export class RxjsComponent implements OnInit, OnDestroy {
   }
 
 
-  regresaObservable(): Observable<number>{
+  regresaObservable(): Observable<any>{
 
-    return new Observable( observer => {
+    return new Observable( (observer: Subscriber<any> ) => {
 
-      let contador = 0;
+      let contador  = 0;
       let intervalo = setInterval( () => {
 
             contador ++;
@@ -67,10 +66,9 @@ export class RxjsComponent implements OnInit, OnDestroy {
       }, 1000 );
 
     }).pipe(
-
       map( resp => resp.valor ),
       filter( ( valor, index ) => {
-        
+
         if ( (valor % 2 ) === 1 ) {
 
           //impar

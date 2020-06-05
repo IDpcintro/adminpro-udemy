@@ -23,7 +23,7 @@ export class PromesasComponent implements OnInit {
 
 contarTres(): Promise<boolean>  {
 
-return new Promise( (resolve, rejet) => {
+return new Promise<any>( (resolve, rejet) => {
 
   let contador = 0;
   let intervalo = setInterval( () => {
